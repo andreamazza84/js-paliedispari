@@ -4,8 +4,8 @@
 
 function isPalindroma(word){
   var letter = "";
-  var reverseCounter = 0;
   var mirrorWord = "";
+  var reverseCounter = 0;
   for (var i = 0; i < word.length; i++) {
     reverseCounter = (word.length - i - 1);
     letter = word[reverseCounter]
