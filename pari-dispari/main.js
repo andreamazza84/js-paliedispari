@@ -31,16 +31,21 @@ function randomFive(min, max) {
    return Math.floor(Math.random() * (max - min)) + min;
 }
 
-/**Restituisce true se l'utente ha scelto pari.
+/**Restituisce true se l'utente ha scelto dispari.
  *
  */
 function isChoiceOdd(choice) {
-  choice = choice.toLowerCase;
-  if (choice == "dipari") {
-    return true;
-  }
-  else if(choice == "pari"){
-    return false;
+  choice = choice.toLowerCase();
+  if(typeof choice === "string"){
+    if (choice === "dispari") {
+      return true;
+    }
+    else if (choice === "pari") {
+      return false;
+    }
+    else{
+      return "error";
+    }
   }
   else{
     return "error";
@@ -51,16 +56,15 @@ var userChoice = prompt("Scegli 'pari' o 'dispari'");
 var userNumber = prompt("Inserisci un numero da 1 a 5");
 var sum = userNumber + randomFive(1, 5);
 
-console.log("isChoiceOdd(userChoice) " + isChoiceOdd(userChoice));
-console.log("isOdd(userNumber) " + isOdd(userNumber));
 
 if(isChoiceOdd(userChoice) === "error" || isOdd(userNumber) === "error"){
   alert("Dati inseriti non correttamente");
 }
-
-if (isChoiceOdd(userChoice) === isOdd(userNumber)) {
-  alert("Hai vinto: hai scelto: "+ userChoice + " ed è uscito " + sum);
-}
 else{
-  alert("Hai perso: hai scelto: "+ userChoice + " ed è uscito " + sum);
+  if (isChoiceOdd(userChoice) === isOdd(sum)) {
+    alert("Hai vinto! Hai scelto: "+ userChoice + " ed è uscito " + sum);
+  }
+  else{
+    alert("Hai perso. Hai scelto: "+ userChoice + " ed è uscito " + sum);
+  }
 }

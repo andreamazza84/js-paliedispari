@@ -2,16 +2,18 @@
 // Chiedere all’utente di inserire una parola
 // Creare una funzione per capire se la parola inserita è palindroma
 
+/**Restituisce true se la parola inserita è palindroma
+ *
+ */
 function isPalindroma(word){
-  var letter = "";
-  var mirrorWord = "";
+  var letter, mirrorWord = "";
   var reverseCounter = 0;
   for (var i = 0; i < word.length; i++) {
-    reverseCounter = (word.length - i - 1);
+    reverseCounter = (word.length - 1 - i);
     letter = word[reverseCounter]
     mirrorWord += letter;
   }
-  if(word == mirrorWord){
+  if(word === mirrorWord){
     return true;
   };
 }
